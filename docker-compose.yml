@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:17.5
+    container_name: postgres17_5
+    # restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - my_network
+
+  pgadmin:
+    image: dpage/pgadmin4:9.4
+    container_name: pgadmin_devspace
+    # restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "8080:80"
+    networks:
+      - my_network
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+
+networks:
+  my_network:
+    driver: bridge
