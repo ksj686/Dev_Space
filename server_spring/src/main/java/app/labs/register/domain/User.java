@@ -30,6 +30,9 @@ public class User {
 
     @Column(nullable = false)
     private String role;
+    
+    @Column(nullable = false)
+    private Boolean enabled;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP WITH TIME ZONE")
