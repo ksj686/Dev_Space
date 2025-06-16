@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: server_spring
+  profiles:
+    active: dev
+    include: secret
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yml
+    contexts: dev
+logging:
+  level:
+    root: INFO
+    com.example.sksb: DEBUG
+    com.rest.proj: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+    org.hibernate.orm.jdbc.extract: TRACE
