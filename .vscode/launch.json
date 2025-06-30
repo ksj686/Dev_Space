@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ServerSpringApplication<server_spring>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "app.labs.ServerSpringApplication",
+      "projectName": "server_spring",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
